@@ -1,4 +1,0 @@
-# class Statement
-
-	
-# end

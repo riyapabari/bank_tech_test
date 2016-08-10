@@ -19,10 +19,6 @@ class Account
 		@transaction_log.add_transaction(date, 0, amount, @balance)
 	end
 
-	def transaction_history
-		@transaction_log.transaction_history
-	end
-
 	def print_statement
 		header = "date || credit || debit || balance"
 		content = ""
@@ -30,6 +26,12 @@ class Account
 			content << "\n#{format_date(transaction.date)} || #{format_amount(transaction.credit)} || #{format_amount(transaction.debit)} || #{format_amount(transaction.balance)}"
 		end
 		header + content
+	end
+
+	private
+	
+	def transaction_history
+		@transaction_log.transaction_history
 	end
 
 	def format_date(date)
