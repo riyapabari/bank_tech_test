@@ -10,16 +10,16 @@ describe TransactionLog do
 	let(:debit ) { double :debit }
 	let(:balance ) { double :balance }
 
-	describe '#addTransaction' do
+	describe '#add_transaction' do
 		it 'initializes a transaction' do
 			expect(transaction_class).to receive(:new)
-			transaction_log.addTransaction(date, credit, debit, balance)
+			transaction_log.add_transaction(date, credit, debit, balance)
 		end
 	end
 
 	describe '#transactions' do
 		it 'records transactions' do
-			transaction_log.addTransaction(date, credit, debit, balance)
+			transaction_log.add_transaction(date, credit, debit, balance)
 			expect(transaction_log.transaction_history).to include transaction
 		end
 	end

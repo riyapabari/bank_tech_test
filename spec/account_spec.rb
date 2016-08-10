@@ -22,4 +22,14 @@ describe Account do
 		end
 	end
 
+	describe '#print_statement' do
+		it 'prints the accounts transaction history' do
+			account.deposit(1000, Time.new(2012, 01, 10))
+			account.deposit(2000, Time.new(2012, 01, 13))
+			account.withdraw(500, Time.new(2012, 01, 14))
+			formatted_statement = "date || credit || debit || balance\n14/01/2012 ||  || 500.00 || 2500.00\n13/01/2012 || 2000.00 ||  || 3000.00\n10/01/2012 || 1000.00 ||  || 1000.00"
+      expect(account.print_statement).to eq formatted_statement
+		end
+	end
+
 end
